@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JsonPlaceholder Posts</title>
+</head>
+<body>
+  <div id="app">
+    <app-request-data></app-request-data>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script>
+    const app = Vue.createApp({});
+
+    app.component('app-request-data', {
+      data() {
+        return {
+          posts: []
+        };
+      },
+      template: `
+        <div>
+          
+          <ul>
+            <li v-for="post in posts">
+              {{ post.id }} - {{ post.title }}
+            </li>
+          </ul>
+        </div>
+      `,
+      mounted() {
+        $.getJSON('https://jsonplaceholder.typicode.com/posts', (data) => {
+          this.posts = data;
+        });
+      }
+    });
+
+    app.mount('#app');
+  </script>
+</body>
+</html>

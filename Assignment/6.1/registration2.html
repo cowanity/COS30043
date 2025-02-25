@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div id="app" class="container mt-5">
+        <form ref="form" action="http://mercury.swin.edu.au/it000000/formtest.php" method="post">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="fname" v-model="firstName" @input="validateFirstName" required>
+                <div v-if="errors.fname" class="text-danger">{{ errors.fname }}</div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lname" v-model="lastName" required>
+                <div v-if="errors.lname" class="text-danger">{{ errors.lname }}</div>
+            </div>
+            <div class="form-group">
+                <label for="userName">User Name</label>
+                <input type="text" class="form-control" id="userName" name="username" v-model="userName" required>
+                <div v-if="errors.username" class="text-danger">{{ errors.username }}</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" v-model="password" required>
+                <div v-if="errors.password" class="text-danger">{{ errors.password }}</div>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" v-model="confirmPassword" required>
+                <div v-if="errors.confirmPassword" class="text-danger">{{ errors.confirmPassword }}</div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" v-model="email" required>
+                <div v-if="errors.email" class="text-danger">{{ errors.email }}</div>
+            </div>
+            <div class="form-group">
+                <label for="streetAddress">Street Address</label>
+                <input type="text" class="form-control" id="streetAddress" name="street" v-model="streetAddress" maxlength="40">
+            </div>
+            <div class="form-group">
+                <label for="suburb">Suburb</label>
+                <input type="text" class="form-control" id="suburb" name="suburb" v-model="suburb" maxlength="20">
+            </div>
+            <div class="form-group">
+                <label for="postcode">Postcode</label>
+                <input type="text" class="form-control" id="postcode" name="postcode" v-model="postcode" required>
+                <div v-if="errors.postcode" class="text-danger">{{ errors.postcode }}</div>
+            </div>
+            <div class="form-group">
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="text" class="form-control" id="mobileNumber" name="mobile" v-model="mobileNumber" required>
+                <div v-if="errors.mobile" class="text-danger">{{ errors.mobile }}</div>
+            </div>
+            <button type="submit" class="btn btn-primary" @click.prevent="submitForm">Submit</button>
+            <button type="button" class="btn btn-link" @click="toggleTerms">Show Terms and Conditions</button>
+            <div v-if="showTerms">
+                <p>Terms and conditions: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </form>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="appregistration2.js"></script>
+
+</body>
+</html>

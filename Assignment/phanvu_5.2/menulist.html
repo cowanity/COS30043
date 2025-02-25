@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu List</title>
+    <script src="https://unpkg.com/vue@3.2.20/dist/vue.global.prod.js"></script>
+    <script src="appmenulist.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <my-menu v-bind:menu="['Home', 'Settings', 'About']"></my-menu>
+    </div>
+</body>
+</html>

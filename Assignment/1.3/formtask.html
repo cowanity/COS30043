@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WAI Form Example</title>
+    <meta charset="utf-8">
+    <meta name="language" content="english">
+    <meta name="keywords" content="Accessibility, Lab, Tasks">
+    <meta name="description" content="WAI Form Example for accessibility improvements">
+</head>
+<body>
+    <a href="#mainContent" class="skip-link">Skip to content</a>
+
+    <h1>WAI Form Example</h1>
+
+    <form id="mainContent" method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+        <fieldset>
+            <legend>Contact Information</legend>
+            <p>
+                <label for="cname">Name (required):</label>
+                <input type="text" name="cname" id="cname" aria-required="true" />
+            </p>
+            <p>
+                <label for="cemail">E-mail Address (required):</label>
+                <input type="text" name="cemail" id="cemail" aria-required="true" />
+            </p>
+            <p>
+                <label for="caddr">Mailing Address (required):</label><br />
+                <textarea name="caddr" id="caddr" rows="4" cols="40" aria-required="true"></textarea>
+            </p>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Credit Card Information</legend>
+            <p>
+                <label for="cvisa">
+                    <input type="radio" name="card" id="cvisa" value="visa" aria-required="true" /> Visa
+                </label>
+                <label for="cmc">
+                    <input type="radio" name="card" id="cmc" value="mc" aria-required="true" /> MasterCard
+                </label>
+            </p>
+            <p>
+                <label for="cnumber">Number (required):</label>
+                <input type="text" name="number" id="cnumber" aria-required="true" />
+            </p>
+            <p>
+                <label for="cexpiry">Expiry (required):</label>
+                <input type="text" name="expiry" id="cexpiry" aria-required="true" />
+            </p>
+        </fieldset>
+        
+        <p>
+            <input type="submit" value="Submit order" />
+        </p>
+        <p>
+            <label for="resetOrder">Clear the order form:</label>
+            <input type="reset" id="resetOrder" value="Clear order" aria-label="Clear the order form" />
+        </p>
+    </form>
+
+    <script>
+        // Ensure form elements are in logical tab order
+        const formElements = document.querySelectorAll('input, textarea');
+        formElements.forEach((el, index) => {
+            el.tabIndex = index + 1;
+        });
+    </script>
+</body>
+</html>

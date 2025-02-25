@@ -1,0 +1,13 @@
+CREATE TABLE units (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    code VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    credit_points DECIMAL(5,2) NOT NULL,
+    type VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
